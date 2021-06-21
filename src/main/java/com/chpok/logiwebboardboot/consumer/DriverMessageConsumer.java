@@ -64,7 +64,6 @@ public class DriverMessageConsumer implements MessageConsumer{
     @Override
     public void onDeleted(Long entityId) {
         driverRepository.deleteById(entityId);
-
     }
 
 }
