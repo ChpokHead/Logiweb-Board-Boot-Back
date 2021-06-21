@@ -33,13 +33,13 @@ public class TruckMessageConsumer implements MessageConsumer{
         LOGGER.info("New message: {} with id {}", message.getEntityEventMessage(), message.getEntityId());
 
         switch (message.getEntityEventMessage()) {
-            case "truck updated":
+            case "truckUpdated":
                 onUpdated(message.getEntityId());
                 break;
-            case "truck deleted":
+            case "truckDeleted":
                 onDeleted(message.getEntityId());
                 break;
-            case "truck saved":
+            case "truckSaved":
                 onSaved(message.getEntityId());
                 break;
             default:

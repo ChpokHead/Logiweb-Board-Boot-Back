@@ -33,13 +33,13 @@ public class DriverMessageConsumer implements MessageConsumer{
         LOGGER.info("New message: {} with id {}", message.getEntityEventMessage(), message.getEntityId());
 
         switch (message.getEntityEventMessage()) {
-            case "driver updated":
+            case "driverUpdated":
                 onUpdated(message.getEntityId());
                 break;
-            case "driver deleted":
+            case "driverDeleted":
                 onDeleted(message.getEntityId());
                 break;
-            case "driver saved":
+            case "driverSaved":
                 onSaved(message.getEntityId());
                 break;
             default:

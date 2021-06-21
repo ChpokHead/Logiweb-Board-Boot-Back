@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class OrderMessageConsumer implements MessageConsumer {
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderMessageConsumer.class);
-    private static final String GET_ORDER_URL = "http://localhost:8080/employeeTruck/trucks/%d";
+    private static final String GET_ORDER_URL = "http://localhost:8080/employeeOrder/orders/%d";
 
     private final OrderRepository orderRepository;
     private final Mapper<OrderDto, OrderEntity> entityMapper;
@@ -33,13 +33,13 @@ public class OrderMessageConsumer implements MessageConsumer {
         LOGGER.info("New message: {} with id {}", message.getEntityEventMessage(), message.getEntityId());
 
         switch (message.getEntityEventMessage()) {
-            case "order updated":
+            case "orderUpdated":
                 onUpdated(message.getEntityId());
                 break;
-            case "order deleted":
+            case "orderDeleted":
                 onDeleted(message.getEntityId());
                 break;
-            case "order saved":
+            case "orderSaved":
                 onSaved(message.getEntityId());
                 break;
             default:
